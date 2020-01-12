@@ -1,0 +1,31 @@
+{
+  "name": "video2x-the-speed",
+  "version": "0.0.1",
+  "description": "Not only 2x the video but also 2x the speed of it",
+  "main": "video2x.js",
+  "scripts": {
+    "start": "node video2x.js || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dumbasPL/video2x-the-speed.git"
+  },
+  "keywords": [
+    "waifu2x",
+    "waifu2x-ncnn-vulkan",
+    "waifu2x-video",
+    "video2x",
+    "upscaling",
+    "fastest",
+    "no-compromises"
+  ],
+  "author": "dumbasPL",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dumbasPL/video2x-the-speed/issues"
+  },
+  "homepage": "https://github.com/dumbasPL/video2x-the-speed#readme",
+  "dependencies": {
+    "yargs": "^15.1.0"
+  }
+}
