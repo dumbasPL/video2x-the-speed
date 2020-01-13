@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
+const fs = require('fs');
+const path = require('path');
 
 const argv = yargs
     .option('input', {
         alias: 'i',
         description: 'Input video file or folder',
         demandOption: true,
-        normalize: true,
+        // normalize: true,
         requiresArg: true,
     })
     .option('output', {
         alias: 'o',
         description: 'Output video file or folder',
         demandOption: true,
-        normalize: true,
+        // normalize: true,
         requiresArg: true,
     })
     .option('scale', {
@@ -67,6 +69,28 @@ const argv = yargs
     .group(['help', 'version'], "Other")
     .detectLocale(false)
     .wrap(Math.min(80, yargs.terminalWidth()))
+    .check((argv, options) => {
+        console.debug(argv.i, argv.o);
+        let files = [];
+        if(typeof argv.i != "string") {
+            for (let i = 0; i < argv.i.length; i++) {
+                const element = argv.i[i];
+                if(!fs.existsSync(element)) throw `File ${element} does not exist`;
+                if(fs.statSync(element).isDirectory()) throw `You can only specify files while using multipple -i options`
+                files.push(path.resolve(element));
+            }
+        } else {
+            if(!fs.existsSync(argv.i)) throw `File ${argv.i} does not exist`;
+            if(fs.statSync(argv.i).isFile()) {
+                files.push(path.resolve(argv.i));
+            } else {
+                let files = fs.readdirSync(path.i);
+                
+            }
+        }
+
+        throw "";
+    })
     .argv;
 
-console.log(argv);
+console.log(argv.i.length != undefined);
