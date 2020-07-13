@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/dumbasPL/video2x-the-speed#readme",
   "dependencies": {
+    "command-exists": "^1.2.8",
     "yargs": "^15.1.0"
   }
 }
